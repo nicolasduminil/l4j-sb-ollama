@@ -22,10 +22,15 @@ public class TestAiSimple
   @Value("${test-ai-simple.question}")
   private String userText;
 
-  @Test
-  public void evaluateRelevancy()
+  @RepeatedTest(10)
+  public void testSimple1()
   {
-    Response response = agentService.chat(new Inquiry(userText));
-    LOG.debug(">>> {} - Response: {}", userText, response.response());
+    String response = agentService.chat(userText);
+  }
+
+  @RepeatedTest(10)
+  public void testSimple2()
+  {
+    agentService.chat2(new Inquiry (userText));
   }
 }

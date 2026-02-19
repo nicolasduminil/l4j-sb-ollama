@@ -13,5 +13,7 @@ public interface AgentService
     Do not include any other text before or after the JSON.
     """)
   @UserMessage("Provide a factual answer to the following inquiry: {{it}}.")
-  Response chat(@V("it") Inquiry inquiry);
+  Response chat2(@V("it") Inquiry inquiry);
+  @UserMessage("Provide a short answer to the following question: {{it}}.")
+  String chat(@V("it") String question);
 }
